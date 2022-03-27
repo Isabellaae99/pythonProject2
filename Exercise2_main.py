@@ -72,7 +72,7 @@ def remove_duplicates(lst: list):
 
 print(remove_duplicates([1, 1, 2]))
 
-"""(2)Write a function dict_func(dictionary) that accepts a dictionary as argument. The given 
+"""Write a function dict_func(dictionary) that accepts a dictionary as argument. The given 
 dictionary contains the keys “Type”, “Brand” and “Price”. The function prints out the values of 
 the dictionary in following format on the console:
 “You have a TYPE from BRAND that costs PRICE.”

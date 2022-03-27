@@ -15,7 +15,7 @@ def count_integer(numbers: list, integer: int):
             return 42
 
 
-print(count_integer([1, 1, 2, 3], 1))
+print(count_integer([1, 1, 1, 3], 1))
 
 """(2)Write a function list_func(numbers, integer) that accepts an integer list and an integer as 
 arguments. Use the built-in list functions to achieve the following:
@@ -28,10 +28,11 @@ untouched."""
 
 def list_func(numbers: list, integer: int):
     if integer in numbers:
-        x = numbers.index(integer)
-        list1 = numbers.pop(x)
-        list2 = numbers.insert(x,6)
-        new_list = numbers.reverse()
+        copynumbers = numbers.copy()
+        x = copynumbers.index(integer)
+        list1 = copynumbers.pop(x)
+        list2 = copynumbers.insert(x,6)
+        new_list = copynumbers.reverse()
         print(new_list)
         return numbers
     else:
@@ -64,14 +65,18 @@ duplicates from the list. There is a very easy way to do this. The function retu
 duplicates or just the given list if no duplicates were present."""
 
 
-def remove_duplicates(lst: list):
-    lst = list(set(lst))
-    return lst
+def remove_duplicates(lst:list):
+    res =[]
+    for i in lst:
+        if i not in res:
+            res.append(i)
+    return res
 
+lst = [1,2,2,3]
 
-print(remove_duplicates([1, 1, 2]))
+print(remove_duplicates(lst))
 
-"""(2)Write a function dict_func(dictionary) that accepts a dictionary as argument. The given 
+"""Write a function dict_func(dictionary) that accepts a dictionary as argument. The given 
 dictionary contains the keys “Type”, “Brand” and “Price”. The function prints out the values of 
 the dictionary in following format on the console:
 “You have a TYPE from BRAND that costs PRICE.”
@@ -81,8 +86,18 @@ the console"""
 
 
 def dict_func(dictionary: dict):
-    dictionary = {"Type": str(input("Enter your Type: ")), "Brand": str(input("Enter your brand: ")),
-                  "Price": str(input("Enter your price: ")), "OS": str("Linux")}
-    print(dictionary["Price"])
-# print(f'("You have a {Type} from {Brand} that costs: {Price}.")
+    dictionary = {"Type": str(input("What Type: "), "Brand": str(input("What Brand:")), "Price": str(input("Enter Prize: ")), "OS": str("Linux")}
+        if len(dictionary ["Type"]) == 0:
+            print("You have an unknown type from ", dictionary ["Brand"], "that costs ", dictionary [prize], ".",
+                  "Your operating system is", dictionary["OS"], ".")
+        elif len(dictionary["Brand"]) == 0:
+            print("You have a ", dictionary["Type"], "from an unknown brand that costs ", dictionary["Prize"], ".",
+                  "Your operating system is", dictionary["OS"], ".")
+        elif len(dictonary["Prize"]) == 0:
+            print("You have a", dictionary[Type], "from", dictionary [Brand], "that costs an unknown amount of money.",
+                  "Your operating system is", dictionary["OS"], ".")
+        else:
+            print("You have a", dictionary["Type"], "from", dictionary ["Brand"], "that costs ", dictionary [prize], ".",
+                  "Your operating system is", dictionary["OS"], ".") )
+    return dictionary
 
